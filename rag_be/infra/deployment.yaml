@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: rag-be-deployment
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: rag-be-pod
+    template:
+        metadata:
+            labels:
+                app: rag-be-pod
+        spec:
+            containers:
+                - name: rag-be-container
+                  image: ptatien/rag-be:latest
+                  ports:
+                      - name: pod-http
+                        containerPort: 8080
+                  env:
+                      - name: GOOGLE_API_KEY
+                        value: "AIzaSyDRcJI8EuZkT3Ng_f6sWtfD8KqktVPqVtk"
+                      - name: GROQ_API_KEY
+                        value: "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"
+                      - name: NEO4J_URI
+                        value: "neo4j+s://489814a4.databases.neo4j.io"
+                      - name: NEO4J_USERNAME
+                        value: "neo4j"
+                      - name: NEO4J_PASSWORD
+                        value: "29UUXBh4k2c5h_4XE_XWuJDeZMrUuigCbwZ0YvGnU9U"
+                  # env:
+                  #     - name: GOOGLE_API_KEY
+                  #       value: "AIzaSyDRcJI8EuZkT3Ng_f6sWtfD8KqktVPqVtk"
+                  #     - name: GROQ_API_KEY
+                  #       value: "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"
+                  #     - name: NEO4J_URI
+                  #       value: "neo4j://my-neo4j.default.svc.cluster.local:7687"
+                  #     - name: NEO4J_USERNAME
+                  #       value: "neo4j"
+                  #     - name: NEO4J_PASSWORD
+                  #       value: "my-initial-password"

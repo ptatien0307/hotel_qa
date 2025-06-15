@@ -1,0 +1,12 @@
+langchain==0.2.11
+langchain-community==0.2.10
+langchain-core==0.2.24
+langchain-groq==0.1.8
+neo4j==5.23.0
+numpy==1.26.4
+pandas==2.2.2
+pillow==10.4.0
+python-dotenv==1.0.1
+fastapi[all]
+uvicorn
+langchain_google_genai

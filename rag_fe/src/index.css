@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 15px;
+        height: 15px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #212121;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #676767;
+        border-radius: 100vh;
+    }
+
+    /* Buttons */
+    ::-webkit-scrollbar-button:single-button {
+        display: block;
+        background-size: 10px;
+        background-repeat: no-repeat;
+    }
+
+    /* Up */
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement {
+        height: 12px;
+        width: 16px;
+        background-position: center 4px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='50,00 0,50 100,50'/></svg>");
+    }
+
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='50,00 0,50 100,50'/></svg>");
+    }
+
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='50,00 0,50 100,50'/></svg>");
+    }
+
+    /* Down */
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:increment {
+        height: 12px;
+        width: 16px;
+        background-position: center 2px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,0 100,0 50,50'/></svg>");
+    }
+
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 100,0 50,50'/></svg>");
+    }
+
+    .scrollbar::-webkit-scrollbar-button:single-button:vertical:increment:active {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 100,0 50,50'/></svg>");
+    }
+}

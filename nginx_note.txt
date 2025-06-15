@@ -1,0 +1,35 @@
+local only:
+    vite proxy config:
+        http://localhost:port
+
+local with nginx:
+    vite proxy config:
+        http://localhost:port
+    nginx proxy:
+        http://localhost:port
+
+docker-compose with proxy:
+    vite proxy config:
+        http://<docker-compose backend name>:port
+    nginx proxy:
+        http://<docker-compose backend name>:port
+
+minikube:
+    configmap:
+        http://<backend service name>:port
+
+
+=================
+Minikube check network connectivity
+    kubectl exec -it <frontend-pod-name> --namespace default -- /bin/sh
+    nslookup <backend-service-name>.<backend-namespace>.svc.cluster.local
+
+            nslook up return:
+                Server:         10.96.0.10
+                Address:        10.96.0.10:53
+
+
+                Name:   rag-be-service.default.svc.cluster.local
+                Address: 10.97.16.12
+
+    curl http://<backend service name>:port or curl http://10.97.16.12:80

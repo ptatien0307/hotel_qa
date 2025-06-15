@@ -1,0 +1,22 @@
+neo4j:
+    name: my-neo4j
+    password: "my-initial-password"
+volumes:
+    data:
+        mode: defaultStorageClass
+        defaultStorageClass:
+            requests:
+                storage: 2Gi
+env:
+    NEO4J_PLUGINS: '[ "apoc" ]'
+
+config:
+    dbms.directories.plugins: "/var/lib/neo4j/plugins"
+    dbms.security.procedures.unrestricted: "jwt.security.*,apoc.*,gds.*,n10s.*"
+    dbms.security.procedures.allowlist: "jwt.security.*,apoc.*,gds.*,n10s.*"
+    dbms.config.strict_validation: "false"
+
+apoc_config:
+    apoc.export.file.enabled: "true"
+    apoc.import.file.enabled: "true"
+    apoc.jdbc.apoctest.url: "jdbc:foo:bar"

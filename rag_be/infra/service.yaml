@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: rag-be-service
+spec:
+    selector:
+        app: rag-be-pod
+    type: ClusterIP
+    ports:
+        - name: be-svc-http
+          protocol: TCP
+          port: 80
+          targetPort: pod-http
